@@ -29,12 +29,12 @@ def date_check(pesel):
     # check if the year is a leap year
     is_leap_year = 0
 
-    if (year % 400 == 0) or ((year % 4 == 0) and (year % 100 != 0)):
+    if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
         is_leap_year = 1
 
     # check if the day digit is correct
     max_day = NUMBER_OF_DAYS_IN_A_MONTH[month - 1]
-    if (month == 2):
+    if month == 2:
         max_day += is_leap_year
 
     if day > max_day:
@@ -66,12 +66,12 @@ for pesel in file:
     total += 1
 
     # 1) Check the length of the string
-    if (len(pesel) != PESEL_LENGTH):
+    if len(pesel) != PESEL_LENGTH:
         invalid_length += 1
         continue
 
     # 2) Check if the string is a digit
-    if (not pesel.isdigit()):
+    if not pesel.isdigit():
         invalid_digit += 1
         continue
 
